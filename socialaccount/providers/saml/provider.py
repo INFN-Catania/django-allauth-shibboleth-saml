@@ -8,7 +8,7 @@ class SamlAccount(ProviderAccount):
 
 class SamlProvider(OAuthProvider):
     id = 'saml'
-    name = ''
+    name = 'saml'
     account_class = SamlAccount
 
     def get_profile_fields(self):
