@@ -1,7 +1,7 @@
 from django.conf.urls import include, url
 from allauth.utils import import_attribute
 
-from .provider import SamlProvider
+from .provider import InfnProvider
 
 from django.conf.urls import include, url
 
@@ -10,7 +10,7 @@ from allauth.utils import import_attribute
 
 def default_urlpatterns(provider):
     login_view = import_attribute(
-        provider.get_package() + '.views.saml_login')
+        provider.get_package() + '.views.infn_login')
 
     urlpatterns = [
         url('^login/$',
@@ -21,4 +21,4 @@ def default_urlpatterns(provider):
 
 
 
-urlpatterns = default_urlpatterns(SamlProvider)
+urlpatterns = default_urlpatterns(InfnProvider)

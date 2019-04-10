@@ -3,11 +3,11 @@ from allauth.socialaccount.helpers import (
     complete_social_login,
     render_authentication_error,
 )
-from .provider import SamlProvider
+from .provider import InfnProvider
 
 
-class SamlAdapter():
-    provider_id = SamlProvider.id
+class InfnAdapter():
+    provider_id = InfnProvider.id
     def __init__(self, request):
         self.request = request
         pass
@@ -25,7 +25,7 @@ class SamlAdapter():
         return self.get_provider().sociallogin_from_response(request,
                                                              extra_data)
 
-class SamlView():
+class InfnView():
     @classmethod
     def adapter_view(cls, adapter):
         def view(request, *args, **kwargs):
@@ -38,4 +38,4 @@ class SamlView():
         login = self.adapter.complete_login(request)
         return complete_social_login(request, login)
 
-saml_login = SamlView.adapter_view(SamlAdapter)
+infn_login = InfnView.adapter_view(InfnAdapter)

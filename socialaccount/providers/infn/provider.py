@@ -3,13 +3,13 @@ from allauth.socialaccount.providers.base import ProviderAccount
 from allauth.socialaccount.providers.oauth.provider import OAuthProvider
 
 
-class SamlAccount(ProviderAccount):
+class InfnAccount(ProviderAccount):
     pass
 
-class SamlProvider(OAuthProvider):
-    id = 'saml'
-    name = 'saml'
-    account_class = SamlAccount
+class InfnProvider(OAuthProvider):
+    id = 'infn'
+    name = ''
+    account_class = InfnAccount
 
     def get_profile_fields(self):
         default_fields = ['id',
@@ -29,4 +29,4 @@ class SamlProvider(OAuthProvider):
     def extract_common_fields(self, data):
         return data
 
-provider_classes = [SamlProvider]
+provider_classes = [InfnProvider]
